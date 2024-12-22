@@ -12,16 +12,13 @@
         <h1><a href = "/">Django Blog</a></h1>
     </header>
 
-    <article>
-        <time>This article was published: 13.12.2024, 5:19</time>
-        <h2><a href = "">My first post</a></h2>
-        <p> This is the first post I've ever made, it's also my first time with html. Very proud of myself.</p>
-    </article>
-
-    <article>
-        <time>This article was published: 13.12.2024, 5:19</time>
-        <h2><a href = "">My second post</a></h2>
-    </article>
+    {%for post in posts%}
+        <article>
+            <time> published: {{ post.published_date }} </time>
+            <h2><a href=""> {{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </article>
+    {% endfor %}
 
 </body>
 
